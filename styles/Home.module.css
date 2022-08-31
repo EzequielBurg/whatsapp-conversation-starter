@@ -38,16 +38,16 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-
 }
 
 .title {
-  margin: 4rem auto;
+  margin: 3rem auto;
   line-height: 1.15;
   font-size: 3.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
 }
 
 .title,
@@ -56,7 +56,7 @@
 }
 
 .description {
-  margin: 3rem auto;
+  margin: 1rem auto;
   line-height: 1.5;
   font-size: 1.5rem;
   font-weight: 500;
