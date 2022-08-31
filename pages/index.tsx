@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <Image src={whats} alt="whats" width={22} height={22} />
           </button>
           <button className={styles.contact} onClick={handleEmail}>
-            <Image src={email} alt="email" width={23} height={23} />
+            <Image src={email} alt="email" width={24} height={24} />
           </button>
         </article>
       </footer>
