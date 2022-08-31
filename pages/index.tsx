@@ -40,7 +40,7 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           Inicie conversas rapidamente, sem a necessidade de salvar o número desejado.
-          Basta inserí-lo no campo abaixo e clicar em  <strong>Iniciar conversa</strong>.
+          Basta inserí-lo no campo abaixo (DDD + telefone) e clicar em  <strong>Iniciar conversa</strong>.
         </p>
 
         <form className={styles.inputContainer}>
