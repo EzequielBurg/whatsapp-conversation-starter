@@ -1,16 +1,30 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import type { NextPage } from 'next'
+import Image from 'next/image';
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import whatsIcon from '../public/whtats-icon.jpeg';
+import whats from '../public/whats.png';
+import email from '../public/email.png';
 
 const Home: NextPage = () => {
-  const [isFocused, setIsFocused] = useState(false);
+  const [phone, setPhone] = useState<string>();
 
-  const handleFocusInput = () => setIsFocused(true);
+  function handleSetPhone(e: ChangeEvent<HTMLInputElement>) {
+    setPhone(e.target.value);  
+  }
 
-  console.log(isFocused);
+  function handleStartConversation() {
+    window.open(`https://wa.me/55${phone}`);
+  }
+
+  function handleEmail() {
+    window.open('mailto:ezekiel_sci@hotmail.com');
+  }
+  
+  function handleWhatsapp() {
+    window.open('https://wa.me/5534999849695');
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,27 +36,36 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>
           Iniciador de conversas no WhatsApp
-          <Image src={whatsIcon} alt="whats" height='90rem' width='90rem' layout='intrinsic' />
         </h1>
 
         <p className={styles.description}>
-          Inicie conversas rapidamente, sem a necessidade de salvar o número desejado para conversar.
-          Basta inserir o número no campo abaixo e clicar em <strong>Iniciar conversa</strong>.
+          Inicie conversas rapidamente, sem a necessidade de salvar o número desejado.
+          Basta inserí-lo no campo abaixo e clicar em  <strong>Iniciar conversa</strong>.
         </p>
 
-        <section className={styles.inputContainer}>
+        <form className={styles.inputContainer}>
           <input
             type="number"
-            className={`${styles.input} ${isFocused && `${styles.inputFocused}`}`}
-            onFocus={handleFocusInput}
+            className={styles.input}
             placeholder="Ex.: 11988776655"
+            onChange={handleSetPhone}
           />
-          <button className={styles.button}>Iniciar conversa</button>
-        </section>
+          <button className={styles.button} onClick={handleStartConversation}>
+            Iniciar conversa
+          </button>
+        </form>
       </main>
 
       <footer className={styles.footer}>
         <span>Desenvolvido por Ezequiel Burg</span>
+        <article className={styles.contactContainer}>
+          <button className={styles.contact} onClick={handleWhatsapp}>
+            <Image src={whats} alt="whats" width={22} height={22} />
+          </button>
+          <button className={styles.contact} onClick={handleEmail}>
+            <Image src={email} alt="email" width={23} height={23} />
+          </button>
+        </article>
       </footer>
     </div>
   )

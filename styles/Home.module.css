@@ -1,29 +1,48 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .main {
   height: 90vh;
-  margin: 0 4rem;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  position: relative;
+}
+
+.main::before {
+  content: '';
+  background-image: url('../public/whats.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  opacity: .13;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
 }
 
 .footer {
   height: 10vh;
   display: flex;
+  flex-direction: column;
   flex: 1;
+  gap: 8px;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+
 }
 
 .title {
-  margin: 4rem;
+  margin: 4rem auto;
   line-height: 1.15;
   font-size: 3.5rem;
   display: flex;
@@ -37,9 +56,16 @@
 }
 
 .description {
-  margin: 3rem 6rem;
+  margin: 3rem auto;
   line-height: 1.5;
   font-size: 1.5rem;
+  font-weight: 500;
+  max-width: 750px;
+  width: 100%;
+}
+
+.description strong {
+  color: #59db64;
 }
 
 .inputContainer {
@@ -47,34 +73,68 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 365px;
 }
 
 .input {
+  width: 100%;
   padding: 1rem;
   border-radius: 1rem;
   font-size: 14px;
   font-weight: 600;
-  min-width: 4rem;
-  width: 25%;  
-}
-
-.input,
-.inputFocused {
   border: 2px solid #59db64;
+  color: rgba(0, 0, 0, .7);
+  font-size: 1rem;
+  outline: none;
 }
 
 .button {
-  border: none;
   background: #59db64;
   border: 2px solid #59db64;
   color: white;
   border-radius: 1rem;
-  padding: 1.04rem;
+  padding: 1.05rem;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   margin-left: -125px;
+  transition: 300ms;
+  display: flex;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.button:hover {
+  font-size: 1rem;
+}
+
+.contactContainer {
+  display: flex;
+}
+
+.contact {
+  border: none;
+  background: none;
+}
+
+@media (max-width: 780px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
 }
