@@ -14,7 +14,8 @@ const Home: NextPage = () => {
   }
 
   function handleStartConversation() {
-    window.open(`https://wa.me/55${phone}`);
+    const cleanPhone = phone?.replace(/\D/g, '');
+    window.open(`https://wa.me/55${cleanPhone}`);
   }
 
   function handleEmail() {
