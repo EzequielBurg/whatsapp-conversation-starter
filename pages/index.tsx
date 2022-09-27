@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import type { NextPage } from 'next'
 import Image from 'next/image';
 import Head from 'next/head'
@@ -9,12 +9,17 @@ import email from '../public/email.png';
 const Home: NextPage = () => {
   const [phone, setPhone] = useState<string>();
 
-  function handleSetPhone(e: ChangeEvent<HTMLInputElement>) {
-    setPhone(e.target.value);  
+  function handleSetPhone(event: ChangeEvent<HTMLInputElement>) {
+    const { target: { value } } = event;
+    
+    setPhone(value);  
   }
 
-  function handleStartConversation() {
+  function handleStartConversation(event: FormEvent<HTMLFormElement> | undefined) {
+    event?.preventDefault();
+
     const cleanPhone = phone?.replace(/\D/g, '');
+    
     window.open(`https://wa.me/55${cleanPhone}`);
   }
 
@@ -44,14 +49,14 @@ const Home: NextPage = () => {
           Basta inserí-lo no campo abaixo (DDD + telefone) e clicar em  <strong>Iniciar conversa</strong>.
         </p>
 
-        <form className={styles.inputContainer}>
+        <form className={styles.inputContainer} onSubmit={handleStartConversation}>
           <input
             type="number"
             className={styles.input}
             placeholder="Ex.: 11988776655"
             onChange={handleSetPhone}
           />
-          <button className={styles.button} onClick={handleStartConversation}>
+          <button className={styles.button} type="submit">
             Iniciar conversa
           </button>
         </form>
