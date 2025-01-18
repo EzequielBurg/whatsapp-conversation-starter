@@ -37,6 +37,7 @@ const Home: NextPage = () => {
         <title>ICW</title>
         <meta name="description" content="Iniciador rápido para conversas no WhatsApp!" />
         <link rel="icon" href="/favicon.ico" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7723172245511866" crossOrigin="anonymous"></script>
       </Head>
 
       <main className={styles.main}>
