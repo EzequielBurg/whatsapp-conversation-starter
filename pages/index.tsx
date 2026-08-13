@@ -18,7 +18,9 @@ const Home: NextPage = () => {
   }
 
   function handleStartConversation(event: FormEvent<HTMLFormElement> | undefined) {
+    console.log('phone', phone)
     event?.preventDefault();
+    event?.stopPropagation();
 
     window.open(`https://wa.me/55${phone}`);
   }
