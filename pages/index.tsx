@@ -11,16 +11,16 @@ const Home: NextPage = () => {
 
   function handleSetPhone(event: ChangeEvent<HTMLInputElement>) {
     const { target: { value } } = event;
+
+    const cleanedValue = value.replace(/\D/g, '')
     
-    setPhone(value);  
+    setPhone(cleanedValue);
   }
 
   function handleStartConversation(event: FormEvent<HTMLFormElement> | undefined) {
     event?.preventDefault();
 
-    const cleanPhone = phone?.replace(/\D/g, '');
-    
-    window.open(`https://wa.me/55${cleanPhone}`);
+    window.open(`https://wa.me/55${phone}`);
   }
 
   function handleEmail() {
